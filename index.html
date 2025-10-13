@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARABÉNSSSSS YASSS 🎁</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: #421102;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            padding: 2rem 1rem 1rem 1rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .info {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        .header img {
+            width: 80px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .cards-section {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 2rem 1rem 2rem 1rem;
+        }
+
+        .gift-card {
+            background: #2c2f33;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px #0005;
+            width: 120px;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .gift-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 16px #0007;
+        }
+
+        .gift-emoji {
+            font-size: 3rem;
+            transition: transform 0.3s;
+        }
+
+        .gift-card.open .gift-emoji {
+            display: none;
+        }
+
+        .gift-card.open {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .gift-card.open img {
+            max-width: 100%;
+            max-height: 70%;
+            object-fit: contain;
+            border-radius: 16px;
+        }
+
+        .gift-message {
+            margin-top: 1rem;
+            font-size: 1rem;
+            color: #FFD700;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .gift-card.open .gift-message {
+            opacity: 1;
+            color: #fff;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        @keyframes shake {
+
+            10%,
+            90% {
+                transform: scale(1.2) rotate(-20deg) translateY(-5px);
+            }
+
+            20%,
+            80% {
+                transform: scale(1.2) rotate(-20deg) translateY(10px);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: scale(1.2) rotate(-20deg) translateY(-15px);
+            }
+
+            40%,
+            60% {
+                transform: scale(1.2) rotate(-20deg) translateY(15px);
+            }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 18px;
+            border-radius: 3px;
+            opacity: 0.8;
+            pointer-events: none;
+            z-index: 10;
+            animation: confetti-fall 1.2s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--x), var(--y)) scale(1.2) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.3rem;
+            }
+
+            .cards-section {
+                gap: 1.2rem;
+                padding: 1rem 0.3rem 1rem 0.3rem;
+            }
+
+            .gift-card {
+                width: 98vw;
+                max-width: 440px;
+                height: 180px;
+            }
+
+            .gift-emoji {
+                font-size: 2.5rem;
+            }
+
+            .gift-message {
+                font-size: 1.1rem;
+            }
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        body h2 {
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 id="parabens-msg">Feliz aniversário,</h1>
+                <img src="img/LG logo.png" alt="Logo">
+            </div>
+            <div class="info">
+                <span id="idade">2 décadas já pai que isso, ta ficando velha msm 👵🏻</span>
+            </div>
+            <p id="mensagem">Aproveita teu dia e que tu consiga realizar tudo que tu tem como objetivo na tua vida
+                🖤(coração preto pq tu é trevas e rock)</p>
+        </header>
+        <h2>Clica nos presente ai p abrir!!!</h2>
+        <section class="cards-section">
+            <!-- Cards de presente -->
+        </section>
+    </div>
+
+    <script>
+        const cardsData = [
+            { emoji: '🎁', texto: 'Imoral o tenis daquele cara.', img: src = "img/tenis.png" },
+            { emoji: '🎁', texto: 'Para de fumar carai', img: src = "img/fiuk.png" },
+            { emoji: '🎁', texto: 'Não deu p te dar um cookie hj pessoalmente entao toma ai!', img: src = "img/cookie.png" },
+            { emoji: '🎁', texto: 'Eu procurando alguem com o sorriso mais bonito q teu', img: src = "img/procurando.png" },
+            { emoji: '🎁', texto: 'Me compra essa camisa pff', img: src = "img/camisa.png" }
+        ];
+
+        function randomColor() {
+            const colors = ['#FFD700', '#FF69B4', '#00BFFF', '#32CD32', '#FF4500', '#8A2BE2', '#FF6347', '#00FA9A'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function createConfetti(cardElem) {
+            for (let i = 0; i < 20; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.background = randomColor();
+                const angle = Math.random() * 2 * Math.PI;
+                const distance = 60 + Math.random() * 40;
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance - 20;
+                confetti.style.setProperty('--x', `${x}px`);
+                confetti.style.setProperty('--y', `${y}px`);
+                // Centraliza em relação ao card
+                const rect = cardElem.getBoundingClientRect();
+                confetti.style.left = rect.left + rect.width / 2 + 'px';
+                confetti.style.top = rect.top + rect.height / 2 + window.scrollY + 'px';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 1300);
+            }
+        }
+
+        function renderCards() {
+            const section = document.querySelector('.cards-section');
+            section.innerHTML = '';
+            cardsData.forEach((card) => {
+                const cardElem = document.createElement('div');
+                cardElem.className = 'gift-card';
+                cardElem.innerHTML = `
+                    <div class="gift-emoji">${card.emoji}</div>
+                    <div class="gift-message">${card.texto}</div>
+                `;
+                cardElem.addEventListener('click', function () {
+                    if (!cardElem.classList.contains('open')) {
+                        cardElem.classList.add('open');
+                        createConfetti(cardElem);
+                        cardElem.innerHTML = `
+                            <img src="${card.img}" alt="Imagem do presente">
+                            <div class="gift-message">${card.texto}</div>
+                        `;
+                    }
+                });
+                section.appendChild(cardElem);
+            });
+        }
+
+        renderCards();
+    </script>
+</body>
+
+</html>
